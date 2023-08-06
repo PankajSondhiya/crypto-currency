@@ -1,0 +1,34 @@
+.carousel-image {
+  width: 100%;
+  height: 300px;
+  object-fit: cover;
+}
+.carousel-image {
+  position: relative;
+}
+
+.coin-caption {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  padding: 10px;
+  border-radius: 5px;
+}
+
+.coin-names {
+  display: flex;
+  width: 100%;
+  justify-content: space-around;
+  align-items: center;
+}
+.coin_detail {
+  justify-content: center;
+  align-items: center;
+  margin: 5px;
+}
+.header {
+  top: 80px;
+  z-index: 100;
+  margin: auto;
+}

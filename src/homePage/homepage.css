@@ -1,0 +1,63 @@
+.container {
+  font-family: sans-serif;
+  text-align: center;
+}
+
+.title {
+  font-size: 80px;
+  color: yellow;
+  font-weight: bolder;
+  margin: auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.search-input {
+  width: 500px;
+  margin: auto;
+  margin-top: 20px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.coinInfo {
+  margin-top: 2px;
+}
+.name {
+  font-size: 20px;
+}
+.coin-table {
+  width: 800px;
+  margin: auto;
+}
+.basicInfo {
+  flex-direction: column;
+  margin: 4px 10px;
+}
+.positive {
+  color: green;
+  padding: 10px;
+}
+.negative {
+  color: red;
+  padding: 10px;
+}
+.table-header {
+  color: black;
+  padding: 10px;
+  font-size: 25px;
+}
+.table-header-row {
+  background-color: yellow;
+}
+.search {
+  color: black;
+  width: 500px;
+  border-radius: 20px;
+  border: 1px solid yellow;
+  padding: 8px;
+  background-color: rgb(30, 26, 26);
+  color: white;
+}
