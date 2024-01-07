@@ -94,7 +94,7 @@ export default function HomePage({ coins, currency }) {
                   <td className="p-3">
                     <div className="coinInfo d-flex text-white">
                       <div className="coinImg">
-                        <img src={coin.image} alt="" />
+                        <img src={coin.image} alt="" className="coin_img" />
                       </div>
                       <div className="basicInfo d-flex">
                         <div className="symbol ">

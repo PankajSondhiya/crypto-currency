@@ -61,3 +61,16 @@
   background-color: rgb(30, 26, 26);
   color: white;
 }
+.coinImg {
+  height: 50px;
+  width: 50px;
+}
+.coin_img {
+  height: 100%;
+  width: 100%;
+}
+tr:hover {
+  -webkit-mask-image: linear-gradient(black, transparent);
+  mask-image: linear-gradient(black, transparent);
+  cursor: pointer;
+}

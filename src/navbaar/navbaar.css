@@ -1,5 +1,6 @@
 .Title {
   color: yellow;
+  cursor: pointer;
 }
 .navbaar {
   justify-content: space-around;
