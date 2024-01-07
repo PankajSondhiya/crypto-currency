@@ -6,7 +6,7 @@ import { useNavigate } from "react-router-dom";
 import "./homepage.css";
 import Corousel from "../Carousel/corousel";
 
-export default function HomePage({ coins, currency, setCurrency }) {
+export default function HomePage({ coins, currency }) {
   const [searchText, setSearchText] = useState("");
   const [sortOption, setSortOption] = useState("rank");
   const navigate = useNavigate();
@@ -14,6 +14,7 @@ export default function HomePage({ coins, currency, setCurrency }) {
   function handleCoinClick(id) {
     navigate(`/currency/${id}`);
   }
+  //console.log("coin at homepage", coins);
 
   const filterData =
     coins &&
@@ -28,23 +29,16 @@ export default function HomePage({ coins, currency, setCurrency }) {
           case "rank":
             return a.market_cap_rank - b.market_cap_rank;
           case "name":
-            return a.localCompare - b.localCompare;
-          case "price0":
-            return (
-              a.market_data.current_price[currency] -
-              b.market_data.current_price[currency]
-            );
+            return a.localeCompare - b.localeCompare;
+          case "price":
+            return a.current_price - b.current_price;
 
-          case "24hchange":
+          case "24hchangmarket_datae":
             return (
-              a.market_data.price_change_percentage_24h -
-              b.market_data.price_change_percentage_24h
+              a.price_change_percentage_24h - b.price_change_percentage_24h
             );
           case "marketcap":
-            return (
-              a.market_data.market_cap[currency] -
-              b.market_data.market_cap[currency]
-            );
+            return a.market_cap - b.market_cap;
           default:
             return;
         }
@@ -54,7 +48,7 @@ export default function HomePage({ coins, currency, setCurrency }) {
     <div className="App bg-dark">
       <Corousel />
       <div className="title text-warning ">
-        <h3 className="mt-4">Crypto Currency Prices by Marketcap</h3>
+        <h3 className="mt-4">{`Crypto Currency Prices by ${sortOption}`}</h3>
       </div>
       <div className="search-input">
         <InputGroup className="">
@@ -91,7 +85,7 @@ export default function HomePage({ coins, currency, setCurrency }) {
             </tr>
           </thead>
           {filterData &&
-            filterData.map((coin, id) => (
+            filterData.map((coin) => (
               <tbody key={coin.id}>
                 <tr
                   onClick={() => handleCoinClick(coin.id)}
@@ -111,23 +105,21 @@ export default function HomePage({ coins, currency, setCurrency }) {
                     </div>
                   </td>
                   <td className="text-white p-3">
-                    {currency.toUpperCase()}{" "}
-                    {coin.market_data.current_price[currency]}
+                    {currency.toUpperCase()} {coin.current_price}
                   </td>
 
                   <td
                     className={`${
-                      coin.market_data.price_change_percentage_24h >= 0
+                      coin.price_change_percentage_24h >= 0
                         ? "positive"
                         : "negative"
                     }`}
                   >
-                    {coin.market_data.price_change_percentage_24h.toFixed(2)}%
+                    {coin.price_change_percentage_24h.toFixed(2)}%
                   </td>
                   <td className="text-white p-3">
                     {" "}
-                    {currency.toUpperCase()}{" "}
-                    {coin.market_data.market_cap[currency]}
+                    {currency.toUpperCase()} {coin.market_cap}
                   </td>
                 </tr>
               </tbody>

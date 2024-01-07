@@ -24,7 +24,7 @@ ChartJS.register(
   Legend
 );
 
-export default function CoinDetail({ currency }) {
+export default function CoinDetail({ currency, setCurrency }) {
   const [coinDetail, setCoinDetail] = useState({});
   const [activeTimeRange, setActiveTimeRange] = useState("1d");
   const [chartData, setChartData] = useState(null);
